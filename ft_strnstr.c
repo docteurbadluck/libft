@@ -6,7 +6,7 @@
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 09:48:20 by tdeliot           #+#    #+#             */
-/*   Updated: 2024/11/21 11:32:34 by tdeliot          ###   ########.fr       */
+/*   Updated: 2024/11/26 18:55:50 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
-	size_t	needle_len;
+	size_t	j;
 
 	i = 0;
-	if (*needle == '\0')
-		return ((char *)haystack);
-	needle_len = ft_strlen(needle);
-	if (haystack == NULL || len == 0)
-		return (NULL);
-	while ((i + needle_len) <= len && haystack[i] != '\0')
+	j = 0;
+	if (needle[0] == '\0')
+		return ((char *) haystack);
+	while (haystack[i] && i < len)
 	{
-		if (haystack[i] == needle[0]
-			&& ft_strncmp(haystack + i, needle, needle_len) == 0)
-			return ((char *)(haystack + i));
+		while (haystack[i + j] == needle[j] && haystack[i + j] && i + j < len)
+		{
+			j++;
+			if (needle[j] == 0)
+				return ((char *) haystack + i);
+		}
 		i++;
+		j = '\0';
 	}
-	return (NULL);
+	return (0);
 }

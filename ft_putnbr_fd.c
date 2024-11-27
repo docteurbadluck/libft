@@ -6,7 +6,7 @@
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 11:21:28 by tdeliot           #+#    #+#             */
-/*   Updated: 2024/11/18 12:32:54 by tdeliot          ###   ########.fr       */
+/*   Updated: 2024/11/26 18:10:46 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,29 @@
 
 void	ft_putnbr_fd( int n, int fd)
 {
-	char	*nbr;
-	int		size;
+	char	digit;
 
-	nbr = ft_itoa(n);
-	size = ft_strlen(nbr);
-	write(fd, nbr, size);
-	free(nbr);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+	}
+	else if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+		ft_putnbr_fd(n, fd);
+	}
+	else
+	{
+		if (n > 9)
+		{
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
+		}
+		else
+		{
+			digit = n + '0';
+			write(fd, &digit, 1);
+		}
+	}
 }

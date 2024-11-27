@@ -6,19 +6,16 @@
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 10:00:38 by tdeliot           #+#    #+#             */
-/*   Updated: 2024/11/21 11:30:14 by tdeliot          ###   ########.fr       */
+/*   Updated: 2024/11/27 09:49:29 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>  
+# include <stddef.h>
 # include <unistd.h>
-# include <stdlib.h> 
-# include <stdint.h>
-# include <errno.h>
-# include <limits.h>
+# include <stdlib.h>
 
 typedef struct s_list
 {

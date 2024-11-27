@@ -6,7 +6,7 @@
 /*   By: tdeliot <tdeliot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 09:48:20 by tdeliot           #+#    #+#             */
-/*   Updated: 2024/11/21 11:33:41 by tdeliot          ###   ########.fr       */
+/*   Updated: 2024/11/26 18:17:30 by tdeliot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	dst_len;
 
-	if (dst == NULL || src == NULL)
-	{
-		return (-1);
-	}
 	dst_len = ft_strnlen(dst, dstsize);
 	return (ft_strlcat_append(dst, src, dstsize, dst_len));
 }
